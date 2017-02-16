@@ -29,7 +29,7 @@ import (
 	"net/url"
 	"strings"
 
-	"github.com/apex/go-apex"
+	"github.com/matthewmueller/go-apex"
 )
 
 // Constructs an http.Request object from a proxyEvent

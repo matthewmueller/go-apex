@@ -5,7 +5,7 @@ import (
 	"fmt"
 	"net/http"
 
-	"github.com/apex/go-apex"
+	apex "github.com/matthewmueller/go-apex"
 )
 
 // Serve adaptes an http.Handler to the apex.Handler interface

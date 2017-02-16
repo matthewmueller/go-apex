@@ -100,7 +100,7 @@ func (w *ResponseWriter) finish() {
 	contentType := w.response.Headers["Content-Type"]
 
 	// Only encode text content types without base64 encoding
-	w.response.IsBase64Encoded = !strings.HasPrefix(contentType, "text/")
+	w.response.IsBase64Encoded = !strings.HasPrefix(contentType, "text/") && !strings.HasPrefix(contentType, "application/")
 
 	if w.response.IsBase64Encoded {
 		w.response.Body = base64.StdEncoding.EncodeToString(w.output.Bytes())
