@@ -72,6 +72,12 @@ func buildRequest(proxyEvent *Event, ctx *apex.Context) (*http.Request, error) {
 		req.Header.Set("X-ApiGatewayProxy-Context", string(ctx.ClientContext))
 	}
 
+	// attach the IP
+	req.Header.Set("X-Forwarded-For", proxyEvent.RequestContext.Identity.SourceIP)
+
+	// attach the user agent
+	req.Header.Set("User-Agent", proxyEvent.RequestContext.Identity.UserAgent)
+
 	req.Host = proxyEvent.Headers["Host"]
 
 	return req, nil
